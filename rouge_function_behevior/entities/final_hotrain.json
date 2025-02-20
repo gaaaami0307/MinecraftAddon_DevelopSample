@@ -1,0 +1,69 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:final_hotrain",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {       
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.9
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": true
+            },
+            "minecraft:timer": {
+                "looping": true,
+                "time": 0.05,
+                "time_down_event": {
+                "event": "time1"
+                }
+            }
+        
+        },
+        "component_groups": {
+        },
+        "events": {
+            "time1": {
+                "run_command": {
+                    "command": [
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "summon gf:ready_hotrain ~~~",
+                        "spreadplayers 175 175 1 50 @e[type=gf:ready_hotrain]",
+                        "scoreboard players add @s death_timer 1",
+                        "execute as @s[scores={death_timer=140..}] at @s run kill @s"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:zoltraq",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {       
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.9
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": false
+            },
+            "minecraft:timer": {
+                "looping": true,
+                "time": 0.02,
+                "time_down_event": {
+                "event": "time1"
+                
+                }
+            }
+        
+        },
+        "component_groups": {
+        },
+        "events": {
+            "time1": {
+                "run_command": {
+                    "command": [
+                        "scoreboard players add @s death_timer 1",
+                        "execute as @s at @s run tp @s ^^^1",
+                        "execute as @s at @s positioned ~~-10~ run particle gami:zoltraq ~~~",
+                        "execute as @s[scores={death_timer=3..}] at @s positioned ~~-11~ as @e[r=3] run damage @s 2 suicide entity @e[type=gf:zoltraq,c=1]",
+                        "execute as @s at @s positioned ~~-10~ run playsound use.chain @a ~~~ 1 1.2 1",
+                        "execute as @s[scores={death_timer=41}] at @s run tp @s ~~200~",
+                        "execute as @s[scores={death_timer=43..}] at @s run kill @s"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}

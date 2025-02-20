@@ -1,0 +1,88 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:chest_spawn",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {       
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.9
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": true
+            },
+            "minecraft:timer": {
+                "looping": false,
+                "time": 0.001,
+                "time_down_event": {
+                "event": "time1"
+                }
+            }
+        
+        },
+        "component_groups": {
+
+        },
+        "events": {
+            "time1": {
+                "run_command": {
+                    "command": [
+                        "scoreboard players random @s chest_random 1 25",
+                        "scoreboard players random @s chest_rare 1 100",
+                        "scoreboard players random @s[scores={chest_rare=1..4}] chest_random 101 103",
+                        "execute as @s[scores={chest_random=1}] at @s run structure load chest1 ~~-100~",
+                        "execute as @s[scores={chest_random=2}] at @s run structure load chest2 ~~-100~",
+                        "execute as @s[scores={chest_random=3}] at @s run structure load chest3 ~~-100~",
+                        "execute as @s[scores={chest_random=4}] at @s run structure load chest4 ~~-100~",
+                        "execute as @s[scores={chest_random=5}] at @s run structure load chest5 ~~-100~",
+                        "execute as @s[scores={chest_random=6}] at @s run structure load chest6 ~~-100~",
+                        "execute as @s[scores={chest_random=7}] at @s run structure load chest7 ~~-100~",
+                        "execute as @s[scores={chest_random=8}] at @s run structure load chest8 ~~-100~",
+                        "execute as @s[scores={chest_random=9}] at @s run structure load chest9 ~~-100~",
+                        "execute as @s[scores={chest_random=10}] at @s run structure load chest10 ~~-100~",
+                        "execute as @s[scores={chest_random=11}] at @s run structure load chest11 ~~-100~",
+                        "execute as @s[scores={chest_random=12}] at @s run structure load chest12 ~~-100~",
+                        "execute as @s[scores={chest_random=13}] at @s run structure load chest13 ~~-100~",
+                        "execute as @s[scores={chest_random=14}] at @s run structure load chest14 ~~-100~",
+                        "execute as @s[scores={chest_random=15}] at @s run structure load chest15 ~~-100~",
+                        "execute as @s[scores={chest_random=16}] at @s run structure load chest16 ~~-100~",
+                        "execute as @s[scores={chest_random=17}] at @s run structure load chest17 ~~-100~",
+                        "execute as @s[scores={chest_random=18}] at @s run structure load chest18 ~~-100~",
+                        "execute as @s[scores={chest_random=19}] at @s run structure load chest19 ~~-100~",
+                        "execute as @s[scores={chest_random=20}] at @s run structure load chest20 ~~-100~",
+                        "execute as @s[scores={chest_random=21}] at @s run structure load chest21 ~~-100~",
+                        "execute as @s[scores={chest_random=22}] at @s run structure load chest22 ~~-100~",
+                        "execute as @s[scores={chest_random=23}] at @s run structure load chest23 ~~-100~",
+                        "execute as @s[scores={chest_random=24}] at @s run structure load chest24 ~~-100~",
+                        "execute as @s[scores={chest_random=25}] at @s run structure load chest25 ~~-100~",
+                        "execute as @s[scores={chest_random=101}] at @s run structure load spchest1 ~~-100~",
+                        "execute as @s[scores={chest_random=102}] at @s run structure load spchest2 ~~-100~",
+                        "execute as @s[scores={chest_random=103}] at @s run structure load spchest3 ~~-100~",
+                        "kill @s"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}

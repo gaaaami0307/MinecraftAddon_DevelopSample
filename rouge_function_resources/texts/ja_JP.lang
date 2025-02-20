@@ -1,0 +1,16 @@
+item.rouge:long_sword=ロングソード
+item.rouge:first_wand=ふぁーすとわんど
+item.rouge:mode_switcher=モードスイッチャー
+item.rouge:explosion_wand=エクスプロージョン
+item.rouge:weapon_checker=ウェポンチェッカー
+item.rouge:forest_ticket=森のチケット
+item.rouge:torch_sword=たいまつソード
+item.rouge:fire_torch_sword=炎のたいまつソード
+item.rouge:soul_torch_sword=魂炎のたいまつソード
+item.rouge:forest_axe=緑化の斧
+item.rouge:forest_stone=常緑の石
+item.rouge:forest_wand=深緑の杖
+item.rouge:soul_blaster=ソウルブラスター
+item.rouge:forest_burst_sword=樹滅の剣
+entity.rouge:zombie.name=ゾンビ
+item.spawn_egg.entity.rouge:zombie.name=Spawn ゾンビ

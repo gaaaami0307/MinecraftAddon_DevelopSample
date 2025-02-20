@@ -1,0 +1,41 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "ローグアイテム追加パック",
+		"description": "便利なファンクションとアイテムを追加します",
+		"uuid": "371fc5cb-7501-439d-8c59-876a2b93c754",
+		"version": [0, 1, 0],
+		"min_engine_version": [1, 20, 0]
+	},
+	"modules": [
+		{
+			"description": "dummy",
+			"type": "data",
+			"uuid": "91c2bc58-4c86-4a56-b335-89196372fe05",
+			"version": [0, 1, 0]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "4b6ba62c-de0c-4099-8b60-42020b92a0e7",
+			"entry": "scripts/main.js",
+			"version": [0, 1, 0]
+		}
+	],
+	"capabilities": ["script_eval"],
+	"dependencies": [
+		{
+			"uuid": "577336c0-6baa-46be-b6ae-00d0e9caa038",
+			"version": [4, 2, 1]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.10.0"
+		}
+	],
+	"metadata": {
+		"generated_with": {
+			"blockbench_entity_wizard": ["1.6.0"]
+		}
+	}
+}

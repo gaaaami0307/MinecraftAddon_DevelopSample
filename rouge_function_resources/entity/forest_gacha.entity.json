@@ -1,0 +1,46 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rouge:forest_gacha",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/forest_gacha"
+			},
+			"animations": {
+				"default_pose": "animation.forest_gacha.default_pose",
+				"no_pose": "animation.forest_gacha.no_pose",
+				"solemn_pose": "animation.forest_gacha.solemn_pose",
+				"athena_pose": "animation.forest_gacha.athena_pose",
+				"brandish_pose": "animation.forest_gacha.brandish_pose",
+				"honor_pose": "animation.forest_gacha.honor_pose",
+				"entertain_pose": "animation.forest_gacha.entertain_pose",
+				"salute_pose": "animation.forest_gacha.salute_pose",
+				"riposte_pose": "animation.forest_gacha.riposte_pose",
+				"zombie_pose": "animation.forest_gacha.zombie_pose",
+				"cancan_a_pose": "animation.forest_gacha.cancan_a_pose",
+				"cancan_b_pose": "animation.forest_gacha.cancan_b_pose",
+				"hero_pose": "animation.forest_gacha.hero_pose",
+				"wiggle": "animation.forest_gacha.wiggle",
+				"controller.pose": "controller.animation.armor_stand.pose",
+				"controller.wiggling": "controller.animation.armor_stand.wiggle"
+			},
+			"scripts": {
+				"initialize": ["variable.armor_stand.pose_index = 0;", "variable.armor_stand.hurt_time = 0;"],
+				"animate": ["controller.pose", "controller.wiggling"]
+			},
+			"geometry": {
+				"default": "geometry.forest_gacha"
+			},
+			"render_controllers": ["controller.render.armor_stand"],
+			"enable_attachables": true,
+			"spawn_egg": {
+				"base_color": "#399564",
+				"overlay_color": "#00cb32"
+			}
+		}
+	}
+}

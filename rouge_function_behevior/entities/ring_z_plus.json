@@ -1,0 +1,60 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:ring_z_plus",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {       
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.9
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": true
+            },
+            "minecraft:timer": {
+                "looping": true,
+                "time": 2,
+                "time_down_event": {
+                "event": "time1"
+                }
+            }
+        
+        },
+        "component_groups": {
+        },
+        "events": {
+            "time1": {
+                "run_command": {
+                    "command": [
+                        "particle gami:border_x ~~-52~",
+                        "particle gami:border_x2 ~~-52~",
+                        "damage @a[x=~-200,dx=400,y=~-50,dy=100,z=~,dz=-300,tag=life] 1 fire",
+                        "execute as @s at @s if entity @e[type=gf:ring_admin,tag=start] run scoreboard players random @s ring_random 1 2",
+                        "execute as @s[scores={ring_random=1}] at @s if entity @e[type=gf:ring_admin,tag=start] run tp @s ~~~1"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}

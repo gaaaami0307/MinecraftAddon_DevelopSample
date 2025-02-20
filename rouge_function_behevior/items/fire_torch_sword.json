@@ -1,0 +1,20 @@
+{
+    "format_version": "1.20.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "rouge:fire_torch_sword"
+        },
+        "components": {
+            "minecraft:can_destroy_in_creative": true,
+            "minecraft:hand_equipped": true,
+            "minecraft:icon":"fire_torch_sword",
+            "minecraft:cooldown": {
+                "category": "fire_torch_sword",
+                "duration": 5
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:damage": 4,
+            "minecraft:allow_off_hand": true
+        }
+    }
+}

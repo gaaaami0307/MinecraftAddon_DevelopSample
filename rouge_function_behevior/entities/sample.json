@@ -1,0 +1,33 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:sample",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {
+            "minecraft:physics": {},
+            "minecraft:collision_box": {
+                "width": 0.9,
+                "height": 0.7
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            }
+        },
+        "component_groups": {
+
+        },
+        "events": {
+
+        }
+    }
+}

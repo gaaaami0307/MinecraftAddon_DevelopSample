@@ -1,0 +1,48 @@
+{
+   "resource_pack_name" : "vanilla",
+   "texture_data" : {
+      "mode_switcher" : {
+         "textures" : "textures/items/mode_switcher"
+      },
+      "long_sword" : {
+         "textures" : "textures/items/long_sword"
+      },
+      "first_wand" : {
+         "textures" : "textures/items/first_wand"
+      },
+      "explosion_wand" : {
+         "textures" : "textures/items/explosion_wand"
+      },
+      "weapon_checker" : {
+         "textures" : "textures/items/weapon_checker"
+      },
+      "forest_ticket" : {
+         "textures" : "textures/items/forest_ticket"
+      },
+      "torch_sword" : {
+         "textures" : "textures/items/torch_sword"
+      },
+      "fire_torch_sword" : {
+         "textures" : "textures/items/fire_torch_sword"
+      },
+      "soul_torch_sword" : {
+         "textures" : "textures/items/soul_torch_sword"
+      },
+      "soul_blaster" : {
+         "textures" : "textures/items/soul_blaster"
+      },
+      "forest_axe" : {
+         "textures" : "textures/items/forest_axe"
+      },
+      "forest_stone" : {
+         "textures" : "textures/items/forest_stone"
+      },
+      "forest_burst_sword" : {
+         "textures" : "textures/items/forest_burst_sword"
+      },
+      "forest_wand" : {
+         "textures" : "textures/items/forest_wand"
+      }
+   },
+   "texture_name" : "atlas.items"
+}

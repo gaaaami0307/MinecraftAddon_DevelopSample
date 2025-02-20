@@ -1,0 +1,78 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:ring_admin_ready",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {       
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.9
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": true
+            },
+            "minecraft:timer": {
+                "looping": true,
+                "time": 1,
+                "time_down_event": {
+                "event": "time1"
+                }
+            }
+        
+        },
+        "component_groups": {
+        },
+        "events": {
+            "time1": {
+                "run_command": {
+                    "command": [
+                        "scoreboard players add @s ring_admin_time 1",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=1}] run tickingarea add 100 -60 100 250 20 250 area",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=2}] run structure load airplane 185 -24 171",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=3}] run tp @a[tag=life] 188 -23 175",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=8}] run function ring_spawn",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=8}] run function chest_set",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=6}] run kill @e[type=item]",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=10},tag=match_custom_bot] run function summon_life_spawn",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=14}] run tickingarea remove area",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=11}] run playsound note.harp @a 188 -23 175 1 1",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=11}] run title @a title 3",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=12}] run playsound note.harp @a 188 -23 175 1 1.2",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=12}] run title @a title 2",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=13}] run playsound note.harp @a 188 -23 175 1 1.4",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=13}] run title @a title 1",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=14}] run playsound note.harp @a 188 -23 175 1 1.8",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=14}] run title @a title GO!",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=14}] run fill 185 -24 171 191 -20 179 air",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=20}] run clear @a[tag=life] minecraft:elytra",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=20}] run summon gf:ring_admin -100 -60 -100",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=23}] run execute as @e[tag=life] run scoreboard players add @e[type=gf:ring_admin,c=1] max_people 1",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=23}] run scoreboard players set @e[type=gf:ring_admin,c=1] phase 1",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=25..}] run kill @s"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}

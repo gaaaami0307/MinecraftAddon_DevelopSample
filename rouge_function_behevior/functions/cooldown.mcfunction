@@ -1,0 +1,1 @@
+execute as @s at @s run tellraw @s {"rawtext":[{"text":"cooldown:§4"},{"score":{"name":"@s","objective":"cooldown"}}]}

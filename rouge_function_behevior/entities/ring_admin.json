@@ -1,0 +1,70 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:ring_admin",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {       
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.9
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": true
+            },
+            "minecraft:timer": {
+                "looping": true,
+                "time": 1,
+                "time_down_event": {
+                "event": "time1"
+                }
+            }
+        
+        },
+        "component_groups": {
+        },
+        "events": {
+            "time1": {
+                "run_command": {
+                    "command": [
+                        "scoreboard players add @s[tag=!countstop] ring_admin_time 1",
+                        "function timecount",
+                        "function remaincount",
+                        "execute as @s at @s if entity @s[scores={remain_people=1},tag=!countstop] run function ring_match_end",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=60}] run function ring_start",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=120}] run function ring_stop",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=150}] run function ring_start",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=210}] run function ring_stop",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=180}] run function chest_set",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=180}] run say チェスト再配置！",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=240}] run function ring_start",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=300}] run function ring_stop",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=360}] run function ring_start",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=420}] run function ring_stop",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=600}] run function ring_start"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}

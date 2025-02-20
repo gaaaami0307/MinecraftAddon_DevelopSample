@@ -1,0 +1,62 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:gacha_admin_msg",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {       
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.9
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": true
+            },
+            "minecraft:timer": {
+                "looping": true,
+                "time": 0.3,
+                "time_down_event": {
+                "event": "time1"
+                }
+            }
+        
+        },
+        "component_groups": {
+        },
+        "events": {
+            "time1": {
+                "run_command": {
+                    "command": [
+                        "scoreboard players add @s death_timer 1",
+                        "scoreboard players random @a[tag=gacha_msg] kill_msg_random 2 15",
+                        "execute if entity @s[scores={death_timer=11}] run setblock 15 -60 12 minecraft:stone_button [\"button_pressed_bit\"=false,\"facing_direction\"=4]",
+                        "execute if entity @s[scores={death_timer=..10}] run function roll/sound/rollsoundmsg",
+                        "execute if entity @s[scores={death_timer=..10}] run function roll/msg_roll",
+                        "execute if entity @s[scores={death_timer=10}] run function roll/msg_result",
+                        "kill @s[scores={death_timer=11..}]"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}

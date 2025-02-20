@@ -1,0 +1,67 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:gacha_admin_park",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {       
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.9
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": true
+            },
+            "minecraft:timer": {
+                "looping": true,
+                "time": 0.3,
+                "time_down_event": {
+                "event": "time1"
+                }
+            }
+        
+        },
+        "component_groups": {
+        },
+        "events": {
+            "time1": {
+                "run_command": {
+                    "command": [
+                        "scoreboard players add @s death_timer 1",
+                        "scoreboard players random @a[tag=gacha_park,scores={park_level=0}] park_random 1 5",
+                        "scoreboard players random @a[tag=gacha_park,scores={park_level=1}] park_random 101 103",
+                        "scoreboard players random @a[tag=gacha_park,scores={park_level=2}] park_random 201 203",
+                        "scoreboard players random @a[tag=gacha_park,scores={park_level=3}] park_random 301 302",
+                        "execute if entity @s[scores={death_timer=11}] run setblock 0 -60 15 minecraft:stone_button [\"button_pressed_bit\"=false,\"facing_direction\"=2]",
+                        "execute if entity @s[scores={death_timer=..10}] run function roll/sound/rollsoundpark",
+                        "execute if entity @s[scores={death_timer=..10}] run function roll/park_roll",
+                        "execute if entity @s[scores={death_timer=10}] run function roll/park_result",
+                        "execute if entity @s[scores={death_timer=..9}] run scoreboard players random @a[tag=gacha_park] park_level_random 1 10",
+                        "execute if entity @s[scores={death_timer=..9}] if entity @a[tag=gacha_park,scores={park_level_random=10}] run function roll/gacha_park_levelup",
+                        "kill @s[scores={death_timer=11..}]"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}

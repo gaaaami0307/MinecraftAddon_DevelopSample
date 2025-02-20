@@ -1,0 +1,29 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "ローグアイテム追加リソース",
+		"description": "リソースパック",
+		"uuid": "577336c0-6baa-46be-b6ae-00d0e9caa038",
+		"version": [4, 2, 1],
+		"min_engine_version": [1, 20, 50]
+	},
+	"modules": [
+		{
+			"description": "",
+			"type": "resources",
+			"uuid": "01b63c75-804a-40ad-b04a-fcf669c6daeb",
+			"version": [4, 2, 1]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "371fc5cb-7501-439d-8c59-876a2b93c754",
+			"version": [4, 2, 1]
+		}
+	],
+	"metadata": {
+		"generated_with": {
+			"blockbench_entity_wizard": ["1.6.0"]
+		}
+	}
+}

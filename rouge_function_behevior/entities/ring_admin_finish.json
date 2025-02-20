@@ -1,0 +1,67 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "gf:ring_admin_finish",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                
+            },
+            "scripts": {
+                
+            }
+        },
+        "components": {       
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:health": {
+                "value": 50,
+                "max": 50
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.9
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": true
+            },
+            "minecraft:timer": {
+                "looping": true,
+                "time": 1,
+                "time_down_event": {
+                "event": "time1"
+                }
+            }
+        
+        },
+        "component_groups": {
+        },
+        "events": {
+            "time1": {
+                "run_command": {
+                    "command": [
+                        "scoreboard players add @s ring_admin_time 1",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=1}] run tickingarea add 100 -60 100 250 20 250 area",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=4}] run function ring_kill",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=4}] run kill @e[type=item]",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=5}] run function win_msg",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=6}] run gamemode a @a[m=!c]",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=6}] run clearspawnpoint @a",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=6}] run tickingarea remove area",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=6}] run function Winner_Point",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=8}] run kill @e[type=gf:ring_admin]",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=9}] run tp @a 0 -58 0",
+                        "execute as @s at @s if entity @s[scores={ring_admin_time=10..}] run kill @s"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}
