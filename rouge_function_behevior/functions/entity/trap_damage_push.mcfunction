@@ -27,7 +27,7 @@ execute as @s as @s[tag=!E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ 
 #踏み判定--E_tdp_step(踏んだ人に付く) -1.2~1.8 -1.8~1.2 => -1.2~1.2
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ as @e[family=!inanimate,type=!item,c=1] run tag @s add E_tdp_step
 #踏みエフェクト
-execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run effect @e[c=1,tag=E_tdp_step] slow_ness 1 2
+execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run effect @e[c=1,tag=E_tdp_step] slowness 1 2
 #踏まれたパーティクル
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run particle rouge:ice_bomb ~~~
 #踏まれた効果音
