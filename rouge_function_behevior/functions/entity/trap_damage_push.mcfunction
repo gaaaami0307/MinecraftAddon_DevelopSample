@@ -26,6 +26,8 @@ execute as @s as @s[tag=!E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ 
 execute as @s as @s[tag=!E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ as @e[family=!inanimate,type=!item,x=~-1.2,y=~-0.3,z=~-1.2,dx=2,dy=0,dz=2] if entity @s[x=~-1.8,y=~-0.7,z=~-1.8,dx=2,dy=0,dz=2] run tag @e[y=~100,c=1,r=5,tag=E_tdp] add E_tdp_steped
 #踏み判定--E_tdp_step(踏んだ人に付く) -1.2~1.8 -1.8~1.2 => -1.2~1.2
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ as @e[family=!inanimate,type=!item,c=1] run tag @s add E_tdp_step
+#踏みエフェクト
+execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run effect @e[c=1,tag=E_tdp_step] slow_ness 1 2
 #踏まれたパーティクル
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run particle rouge:ice_bomb ~~~
 #踏まれた効果音
@@ -42,8 +44,8 @@ execute as @s as @s[tag=E_tdp_bombed] at @s run tag @s remove E_tdp_steped
 #起爆時パーティクル
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run particle rouge:ice_explode ~~~
 #起爆時効果音 pitch/audio
-execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ at @s run playsound random.explode @a ~~~ 1.0 0.8
-execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ at @s run playsound item.trident.thunder @a ~~~ 2.0 0.2
+execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run playsound random.explode @a ~~~ 1.0 0.8
+execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run playsound item.trident.thunder @a ~~~ 2.0 0.2
 #起爆時消滅
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run scoreboard players set @s death_timer 1000000
 #起爆時ダメージ*最後に持ってくること*
