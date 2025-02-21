@@ -6,7 +6,7 @@ scoreboard players add @s death_timer 1
 #ID=E_tdp
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @s add E_tdp
 #場所調整
-execute as @s[scores={death_timer=1}] at @s positioned ~~~ run spreadplayers ~ ~ 1 1 @s
+execute as @s[scores={death_timer=1}] at @s positioned ~~~ run spreadplayers ~ ~ 1 2 @s
 #高さ調整
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp @s ~~100~
 #設置時効果音 pitch/audio
