@@ -33,7 +33,7 @@ execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ r
 #踏まれた効果音
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run playsound random.anvil_land @a ~~~ 1.7 0.2
 #踏まれた際に生存時間リセット
-execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run scoreboard players set @s death_timer 0
+execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run scoreboard players set @s death_timer 1
 #秒数カウント--{arg1}(これに付く)
 execute as @s as @s[tag=E_tdp_steped] at @s positioned ~~-100~ run scoreboard players add @s arg1 1
 #起爆判定--E_tdp_bombed(これに付く)
