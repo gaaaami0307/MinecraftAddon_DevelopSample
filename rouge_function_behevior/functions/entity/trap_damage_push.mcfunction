@@ -6,7 +6,7 @@ scoreboard players add @s death_timer 1
 #ID=E_tdp
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @s add E_tdp
 #場所調整
-execute as @s[scores={death_timer=1}] at @s positioned ~~~ run spreadplayers ~ ~ 1 5 @s
+execute as @s[scores={death_timer=1}] at @s positioned ~~~ run spreadplayers ~ ~ 1 1 @s
 #高さ調整
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp @s ~~100~
 #設置時効果音 pitch/audio
@@ -32,6 +32,8 @@ execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ r
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run particle rouge:ice_bomb ~~~
 #踏まれた効果音
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run playsound random.anvil_land @a ~~~ 1.7 0.2
+#踏まれた際に生存時間リセット
+execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run scoreboard players set @s death_timer 0
 #秒数カウント--{arg1}(これに付く)
 execute as @s as @s[tag=E_tdp_steped] at @s positioned ~~-100~ run scoreboard players add @s arg1 1
 #起爆判定--E_tdp_bombed(これに付く)
@@ -49,7 +51,7 @@ execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run playsound ite
 #起爆時消滅
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run scoreboard players set @s death_timer 1000000
 #起爆時ダメージ*最後に持ってくること*
-execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run damage @e[tag=E_tdp_bomb,r=8] 10 entity_attack entity @s
+execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run damage @e[tag=E_tdp_bomb,r=8] 5 entity_attack entity @s
 #起爆時エフェクト
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run effect @e[tag=E_tdp_bomb,r=8] slowness 5 4
 #起爆時処理終了
