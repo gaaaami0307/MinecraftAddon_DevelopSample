@@ -27,7 +27,7 @@ execute as @s as @s[tag=!E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ 
 #踏み判定--E_tdp_step(踏んだ人に付く) -1.2~1.8 -1.8~1.2 => -1.2~1.2
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ as @e[family=!inanimate,type=!item,c=1] run tag @s add E_tdp_step
 #踏みエフェクト
-execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run effect @e[c=1,tag=E_tdp_step] slowness 1 2
+execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run effect @e[c=1,tag=E_tdp_step] slowness 1 1
 #踏まれたパーティクル
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run particle rouge:ice_bomb ~~~
 #踏まれた効果音
@@ -51,7 +51,7 @@ execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run scoreboard pl
 #起爆時ダメージ*最後に持ってくること*
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run damage @e[tag=E_tdp_bomb,r=8] 10 entity_attack entity @s
 #起爆時エフェクト
-execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run effect @e[tag=E_tdp_bomb,r=8] slowness 5 2 true
+execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run effect @e[tag=E_tdp_bomb,r=8] slowness 5 4
 #起爆時処理終了
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run tag @e[tag=E_tdp_bomb,r=8] remove E_tdp_bomb
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run tag @s remove E_tdp_bombed
