@@ -33,14 +33,14 @@ execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ r
 #踏まれた効果音
 execute as @s as @s[tag=E_tdp_steped,scores={arg1=0}] at @s positioned ~~-100~ run playsound random.anvil_land @a ~~~ 1.7 0.2
 #秒数カウント--{arg1}(これに付く)
-execute as @s as @s[tag=E_tdp_steped] at @s run scoreboard players add @s arg1 1
+execute as @s as @s[tag=E_tdp_steped] at @s positioned ~~-100~ run scoreboard players add @s arg1 1
 #起爆判定--E_tdp_bombed(これに付く)
-execute as @s as @s[scores={arg1=20..}] at @s run tag @s add E_tdp_bombed
+execute as @s as @s[scores={arg1=20..}] at @s positioned ~~-100~ run tag @s add E_tdp_bombed
 #被爆判定--E_tdp_bomb(人に付く)
-execute as @s as @s[tag=E_tdp_bombed] at @s run tag @e[family=!inanimate,type=!item,r=3] add E_tdp_bomb
+execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run tag @e[family=!inanimate,type=!item,r=3] add E_tdp_bomb
 #起爆時に踏み判定を消す
-execute as @s as @s[tag=E_tdp_bombed] at @s run tag @e[c=1,tag=E_tdp_step] remove E_tdp_step
-execute as @s as @s[tag=E_tdp_bombed] at @s run tag @s remove E_tdp_steped
+execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run tag @e[c=1,tag=E_tdp_step] remove E_tdp_step
+execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run tag @s remove E_tdp_steped
 #起爆時パーティクル
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run particle rouge:ice_explode ~~~
 #起爆時効果音 pitch/audio
