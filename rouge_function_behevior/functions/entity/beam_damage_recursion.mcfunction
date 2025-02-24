@@ -21,9 +21,11 @@ execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run particle mine
 #
 # 動作
 #
-#ダイヤを1個入手
-execute as @s at @s positioned ~~-100~ run give @p minecraft:diamond 1 0
+#移動
+execute as @s at @s positioned ~~~ run tp @s ^^^1
+#パーティクル
+execute as @s at @s positioned ~~-100~ run particle minecraft:balloon_gas_particle ~~~
 #回数制限消滅
-execute as @s[scores={death_timer=10..}] at @s run kill @s
+execute as @s[scores={death_timer=30..}] at @s run kill @s
 #再帰
-execute as @s[scores={death_timer=..9}] at @s run function entity/beam_damage_recursion
+execute as @s[scores={death_timer=..29}] at @s run function entity/beam_damage_recursion
