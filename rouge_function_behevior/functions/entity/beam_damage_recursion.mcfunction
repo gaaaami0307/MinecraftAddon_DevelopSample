@@ -15,9 +15,9 @@ execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @e[tag=E_bedr
 #高さ調整
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp @s ~~100.5~
 #発射時効果音 pitch/audio
-#execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run playsound mob.breeze.jump @a ~~~ 1.5 0.8
+execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run playsound mob.breeze.jump @a ~~~ 1.5 0.8
 #発射時パーティクル
-#execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run particle minecraft:wind_charged_emitter ~~~
+execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run particle minecraft:wind_charged_emitter ~~~
 #
 # 動作
 #
@@ -26,4 +26,4 @@ execute as @s at @s positioned ~~-100~ run give @p minecraft:diamond 1 0
 #回数制限消滅
 execute as @s[scores={death_timer=10..}] at @s run kill @s
 #再帰
-execute as @s at @s run function entity/beam_damage_recursion
+execute as @s[scores={death_timer=..9}] at @s run function entity/beam_damage_recursion
