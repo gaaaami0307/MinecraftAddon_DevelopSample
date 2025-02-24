@@ -20,3 +20,4 @@
 ・curve:カーブ
 ・stop:静止
 ・push:押したら起動
+・recursion:再帰
