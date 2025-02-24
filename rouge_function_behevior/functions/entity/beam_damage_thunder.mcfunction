@@ -23,6 +23,16 @@ execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run playsound fir
 #
 #移動
 execute as @s at @s positioned ~~~ run tp @s ^^^0.5
+#移動方向を決める
+execute as @s at @s positioned ~~~ run scoreboard players random @s arg1 1 5
+#右
+execute as @s[scores={arg1=1}] at @s positioned ~~~ run tp @s ^0.5^^
+#左
+execute as @s[scores={arg1=2}] at @s positioned ~~~ run tp @s ^-0.5^^
+#上
+execute as @s[scores={arg1=3}] at @s positioned ~~~ run tp @s ^^0.2^
+#下
+execute as @s[scores={arg1=4}] at @s positioned ~~~ run tp @s ^^-0.2^
 #パーティクル
 execute as @s at @s positioned ~~-100~ run particle rouge:thunder ~~~
 #当たり判定--E_bedth_hitter
@@ -34,7 +44,7 @@ execute as @s at @s positioned ~~-100~ as @e[tag=E_bedth_hitter] at @s run parti
 #ヒット時消滅
 #execute as @s at @s positioned ~~-100~ if entity @e[tag=E_bedth_hitter] run scoreboard players set @s death_timer 1000000
 #ヒット時ダメージ*最後に持ってくること*
-execute as @s at @s positioned ~~-100~ as @e[tag=E_bedth_hitter] run damage @s 7 entity_attack entity @p
+execute as @s at @s positioned ~~-100~ as @e[tag=E_bedth_hitter] run damage @s 12 entity_attack entity @p
 #ヒット処理終了
 execute as @s at @s positioned ~~-100~ as @e[tag=E_bedth_hitter] run tag @s remove E_bedth_hitter
 #回数制限消滅
