@@ -22,7 +22,7 @@ execute as @s[tag=E_spspsty_fire] at @s positioned ~~~ run scoreboard players ad
 #召喚したものにターゲットタグをつける
 execute as @s[tag=E_spspsty_fire] at @s positioned ~~3~ run tag @e[c=1,r=0.02] add E_spspsty_target
 #散布 対象同士の最小距離、半径、ターゲット
-execute as @s[tag=E_spspsty_fire] at @s positioned ~~3~ run spreadplayers ~ ~ 2 50 @e[tag=E_spspsty_target]
+execute as @s[tag=E_spspsty_fire] at @s positioned ~~3~ run spreadplayers ~ ~ 2 20 @e[tag=E_spspsty_target]
 #ターゲットタグを削除
 execute as @s[tag=E_spspsty_fire] at @s positioned ~~~ run tag @e[tag=E_spspsty_target] remove E_spspsty_target 
 #リキャストをリセット
@@ -30,6 +30,6 @@ execute as @s[tag=E_spspsty_fire] at @s positioned ~~~ run scoreboard players se
 #召喚タグを削除
 execute as @s[tag=E_spspsty_fire] at @s positioned ~~~ run tag @s remove E_spspsty_fire 
 #個数制限消滅
-execute as @s[scores={arg1=30..}] at @s run kill @s
+execute as @s[scores={arg1=20..}] at @s run kill @s
 #時間制限消滅
 execute as @s[scores={death_timer=100..}] at @s run kill @s
