@@ -1272,7 +1272,7 @@ server.system.runInterval(ev => {
    //---------------------
    //---エンティティ処理----
 
-   const entities=["magicbullet","spawner","bullet_damage_straight","trap_damage_push","beam_damage_recursion","beam_damage_thunder"];
+   const entities=["magicbullet","spawner","bullet_damage_straight","trap_damage_push","beam_damage_recursion","beam_damage_thunder","beam_damage_rain"];
 
    const op_player = server.world.getAllPlayers()[0];
    for (const entity of entities){
