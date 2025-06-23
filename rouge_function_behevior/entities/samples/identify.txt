@@ -22,3 +22,4 @@
 ・push:押したら起動
 ・recursion:再帰
 ・thunder:直角的蛇行
+・rain:雨
