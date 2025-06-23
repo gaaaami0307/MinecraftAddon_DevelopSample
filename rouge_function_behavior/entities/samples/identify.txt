@@ -8,12 +8,14 @@
 ・trap[t]:設置型
 ・beam[be]:ビーム
 ・particle:パーティクル用
+・spawner[sp]:スポナー
 
 ➁...効果
 ・damage[d]:ダメージ
 ・none:なし
 ・effect:エフェクト
 ・teleport:テレポート
+・spread[sp]:散布
 
 ➂...特徴
 ・straight[s]:直線的
@@ -23,3 +25,4 @@
 ・recursion[r]:再帰
 ・thunder[th]:直角的蛇行
 ・rain[ra]:雨
+・steady[sty]:継続
