@@ -18,7 +18,9 @@ execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run playsound ran
 # 動作-待機
 #
 #待機時間
-execute as @s[scores={death_timer=21}] at @s positioned ~~-100~ run tag @s add E_bedra_shot
+execute as @s[scores={death_timer=101},tag=!E_bedra_shot] at @s positioned ~~-100~ run tag @s add E_bedra_shot
+#一度起動したら全ての同じものが起動する
+#execute as @s[scores={arg1=0},tag=E_bedra_shot] at @s positioned ~~-100~ run tag @e[tag=E_bedra] add E_bedra_shot
 #待機時パーティクル
 execute as @s[tag=!E_bedra_shot] at @s positioned ~~-100~ run particle rouge:danger ~~~
 #
@@ -35,6 +37,8 @@ execute as @s[scores={arg1=0},tag=E_bedra_shot] at @s positioned ~~~ run tp @s ~
 execute as @s[tag=E_bedra_shot] at @s positioned ~~-100~ run scoreboard players add @s arg1 1
 #移動
 execute as @s[tag=E_bedra_shot] at @s positioned ~~~ run tp @s ~~-0.5~
+#ブロックで止まる移動(動作しない)
+#execute as @s[tag=E_bedra_shot] at @s positioned ~~~ run tp @s ~~-0.5~ true
 #パーティクル
 execute as @s[tag=E_bedra_shot] at @s positioned ~~-100~ run particle rouge:laser ~~~
 #当たり判定--E_bedra_hitter
@@ -49,8 +53,6 @@ execute as @s[tag=E_bedra_shot] at @s positioned ~~-100~ as @e[family=!inanimate
 execute as @s[tag=E_bedra_shot] at @s positioned ~~-100~ as @e[tag=E_bedra_hitter] run damage @s 7 entity_attack entity @p
 #ヒット処理終了
 execute as @s[tag=E_bedra_shot] at @s positioned ~~-100~ as @e[tag=E_bedra_hitter] run tag @s remove E_bedra_hitter
-#ブロックで消滅
-execute as @s[tag=E_bedra_shot] at @s positioned ~~-100~ unless block ~~0.5~ air run kill @s
 #回数制限消滅
 execute as @s[scores={arg1=60..},tag=E_bedra_shot] at @s run kill @s
 #再帰
