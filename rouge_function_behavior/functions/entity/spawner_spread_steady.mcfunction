@@ -5,39 +5,31 @@ scoreboard players add @s death_timer 1
 #
 #ID=E_spspsty
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @s add E_spspsty
-#発射元ターゲット
-execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @e[c=1,family=!inanimate,type=!item,tag=!E_spspsty] add E_spspsty_settinger
-#初期位置
-execute as @s[scores={death_timer=1}] at @s positioned ~~~ run execute as @e[tag=E_spspsty_settinger,c=1] at @s positioned ^^^-30 run tp @e[tag=E_spspsty,c=1] ~~~ facing @e[tag=E_spspsty_settinger,c=1]
-#発射位置
-execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp ^^^30.5
-execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @e[tag=E_spspsty_settinger,c=1] remove E_spspsty_settinger
 #高さ調整
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp @s ~~100.5~
-#発射時効果音 audio/pitch
-execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run playsound mob.breeze.jump @a ~~~ 1.5 0.8
-#発射時パーティクル
-execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run particle minecraft:wind_charged_emitter ~~~
 #
 # 動作
 #
-#速度
-execute as @s at @s run tp @s ^^^0.5
-#パーティクル
-execute as @s at @s positioned ~~-100~ run particle minecraft:explosion_particle ~~~
-#当たり判定--E_spspsty_hitter
-execute as @s at @s positioned ~~-100~ as @e[family=!inanimate,type=!item,x=~-0.3,y=~-0.3,z=~-0.3,dx=0,dy=0,dz=0] if entity @s[x=~-0.7,y=~-0.7,z=~-0.7,dx=0,dy=0,dz=0] run tag @s add E_spspsty_hitter
-#ヒット時効果音 audio/pitch
-execute as @s at @s positioned ~~-100~ as @e[tag=E_spspsty_hitter] at @s run playsound mob.breeze.death @a ~~~ 1.0 0.8
-#ヒット時パーティクル
-execute as @s at @s positioned ~~-100~ as @e[tag=E_spspsty_hitter] at @s run particle minecraft:wind_explosion_emitter ~~1~
-#ヒット時消滅
-execute as @s at @s positioned ~~-100~ if entity @e[tag=E_spspsty_hitter] run scoreboard players set @s death_timer 1000000
-#ヒット時ダメージ*最後に持ってくること*
-execute as @s at @s positioned ~~-100~ as @e[tag=E_spspsty_hitter] run damage @s 5 entity_attack entity @p
-#ヒット時エフェクト
-#execute as @s at @s positioned ~~-100~ as @e[tag=E_spspsty_hitter] run effect @s levitation 1 20 true
-#ヒット時処理終了
-execute as @s at @s positioned ~~-100~ as @e[tag=E_spspsty_hitter] run tag @s remove E_spspsty_hitter
+#arg1=個数
+#arg2=召喚ティック
+execute as @s at @s positioned ~~~ run scoreboard players add @s arg2 1
+#召喚リキャスト
+execute as @s[scores={arg2=2..}] at @s positioned ~~~ run tag @s add E_spspsty_fire
+#召喚
+execute as @s[tag=E_spspsty_fire] at @s positioned ~~~ run summon rouge:beam_damage_rain ~ ~3 ~
+#召喚個数追加
+execute as @s[tag=E_spspsty_fire] at @s positioned ~~~ run scoreboard players add @s arg1 1
+#召喚したものにターゲットタグをつける
+execute as @s[tag=E_spspsty_fire] at @s positioned ~~3~ run tag @e[c=1,r=0.02] add E_spspsty_target
+#散布 対象同士の最小距離、半径、ターゲット
+execute as @s[tag=E_spspsty_fire] at @s positioned ~~3~ run spreadplayers ~ ~ 2 50 @e[tag=E_spspsty_target]
+#ターゲットタグを削除
+execute as @s[tag=E_spspsty_fire] at @s positioned ~~~ run tag @e[tag=E_spspsty_target] remove E_spspsty_target 
+#リキャストをリセット
+execute as @s[tag=E_spspsty_fire] at @s positioned ~~~ run scoreboard players set @s arg2 0
+#召喚タグを削除
+execute as @s[tag=E_spspsty_fire] at @s positioned ~~~ run tag @s remove E_spspsty_fire 
+#個数制限消滅
+execute as @s[scores={arg1=30..}] at @s run kill @s
 #時間制限消滅
-execute as @s[scores={death_timer=33..}] at @s run kill @s
+execute as @s[scores={death_timer=100..}] at @s run kill @s
