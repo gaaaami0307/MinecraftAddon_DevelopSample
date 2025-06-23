@@ -4,22 +4,22 @@
 ➀_➁_➂
 
 ➀...基本的な動作
-・bullet:弾
-・trap:設置型
-・beam:ビーム
+・bullet[b]:弾
+・trap[t]:設置型
+・beam[be]:ビーム
 ・particle:パーティクル用
 
 ➁...効果
-・damage:ダメージ
+・damage[d]:ダメージ
 ・none:なし
 ・effect:エフェクト
 ・teleport:テレポート
 
 ➂...特徴
-・straight:直線的
+・straight[s]:直線的
 ・curve:カーブ
 ・stop:静止
 ・push:押したら起動
-・recursion:再帰
-・thunder:直角的蛇行
-・rain:雨
+・recursion[r]:再帰
+・thunder[th]:直角的蛇行
+・rain[ra]:雨
