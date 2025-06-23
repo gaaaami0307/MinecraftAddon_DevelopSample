@@ -18,7 +18,7 @@ execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run playsound ran
 # 動作-待機
 #
 #待機時間
-execute as @s[scores={death_timer=101},tag=!E_bedra_shot] at @s positioned ~~-100~ run tag @s add E_bedra_shot
+execute as @s[scores={death_timer=21},tag=!E_bedra_shot] at @s positioned ~~-100~ run tag @s add E_bedra_shot
 #一度起動したら全ての同じものが起動する
 #execute as @s[scores={arg1=0},tag=E_bedra_shot] at @s positioned ~~-100~ run tag @e[tag=E_bedra] add E_bedra_shot
 #待機時パーティクル
