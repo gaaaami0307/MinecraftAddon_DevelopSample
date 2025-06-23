@@ -9,7 +9,7 @@ execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @s add E_tdp
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run spreadplayers ~ ~ 1 2 @s
 #高さ調整
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp @s ~~100~
-#設置時効果音 pitch/audio
+#設置時効果音 audio/pitch
 execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run playsound close.fence_gate @a ~~~ 1.7 0.8
 #設置時パーティクル
 execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run particle minecraft:wind_charged_emitter ~~~
@@ -45,7 +45,7 @@ execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run tag @e[c=1,ta
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run tag @s remove E_tdp_steped
 #起爆時パーティクル
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run particle rouge:ice_explode ~~~
-#起爆時効果音 pitch/audio
+#起爆時効果音 audio/pitch
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run playsound random.explode @a ~~~ 1.0 0.8
 execute as @s as @s[tag=E_tdp_bombed] at @s positioned ~~-100~ run playsound item.trident.thunder @a ~~~ 2.0 0.2
 #起爆時消滅
