@@ -1,0 +1,4 @@
+execute as @e[type=item,tag=!did,name="$1"] as @s[tag=!using] at @s run tellraw @p {"rawtext":[{"text":"【$1】"}]}
+execute as @e[type=item,tag=!did,name="$1"] as @s[tag=!using] at @s run tellraw @p {"rawtext":[{"text":"$2"}]}
+execute as @e[type=item,tag=!did,name="$1"] as @s[tag=using] at @s run tellraw @a {"rawtext":[{"text":"【$1】=> §6使用！"}]}
+execute as @e[type=item,tag=!did,name="$1"] as @s[tag=using] at @s run tellraw @a {"rawtext":[{"text":"$2"}]}
