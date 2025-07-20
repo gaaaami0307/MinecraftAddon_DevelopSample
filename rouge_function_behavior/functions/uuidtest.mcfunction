@@ -1,1 +1,1 @@
-execute as @a at @s score @s UUID = @e[name="test",r=3] run effect @s speed 1 1
+execute as @a at @s if score @s UUID = @e[name="test",r=3,c=1] UUID run effect @s speed 1 1
