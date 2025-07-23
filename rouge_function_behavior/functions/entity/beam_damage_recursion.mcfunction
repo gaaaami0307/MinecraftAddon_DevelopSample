@@ -9,6 +9,8 @@ execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @s add E_bedr
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @e[c=1,family=!inanimate,type=!item,tag=!E_bedr] add E_bedr_settinger
 #初期位置
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run execute as @e[tag=E_bedr_settinger,c=1] at @s positioned ^^^-30 run tp @e[tag=E_bedr,c=1] ~~~ facing @e[tag=E_bedr_settinger,c=1]
+#set ID
+execute as @s[scores={death_timer=1}] at @s positioned ~~~ run scoreboard players operation @s UUID = @e[tag=E_bedr_settinger,c=1] UUID
 #発射位置
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp ^^^30.5
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @e[tag=E_bedr_settinger,c=1] remove E_bedr_settinger
@@ -39,6 +41,6 @@ execute as @s at @s positioned ~~-100~ as @e[tag=E_bedr_hitter] run damage @s 7 
 #ヒット処理終了
 execute as @s at @s positioned ~~-100~ as @e[tag=E_bedr_hitter] run tag @s remove E_bedr_hitter
 #回数制限消滅
-execute as @s[scores={death_timer=30..}] at @s run kill @s
+execute as @s[scores={death_timer=60..}] at @s run kill @s
 #再帰
 execute as @e[tag=E_bedr,c=1,scores={death_timer=..59}] at @s run function entity/beam_damage_recursion
