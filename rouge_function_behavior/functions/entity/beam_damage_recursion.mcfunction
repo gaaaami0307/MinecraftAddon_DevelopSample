@@ -13,7 +13,7 @@ execute as @s[scores={death_timer=1}] at @s positioned ~~~ run execute as @e[tag
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp ^^^30.5
 execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tag @e[tag=E_bedr_settinger,c=1] remove E_bedr_settinger
 #高さ調整
-execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp @s ~~100.5~
+execute as @s[scores={death_timer=1}] at @s positioned ~~~ run tp @s ~~101.5~
 #発射時効果音 audio/pitch
 execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run playsound mob.breeze.jump @a ~~~ 1.5 0.8
 #発射時パーティクル
@@ -22,7 +22,8 @@ execute as @s[scores={death_timer=1}] at @s positioned ~~-100~ run particle mine
 # 動作
 #
 #移動
-execute as @s at @s positioned ~~~ run tp @s ^^^1
+execute as @s at @s positioned ~~~ run tp @s ^^^0.5 true
+execute as @s at @s positioned ~~-100~ unless block ~~~ air run kill @s
 #パーティクル
 execute as @s at @s positioned ~~-100~ run particle minecraft:balloon_gas_particle ~~~
 #当たり判定--E_bedr_hitter
@@ -40,4 +41,4 @@ execute as @s at @s positioned ~~-100~ as @e[tag=E_bedr_hitter] run tag @s remov
 #回数制限消滅
 execute as @s[scores={death_timer=30..}] at @s run kill @s
 #再帰
-execute as @s[scores={death_timer=..29}] at @s run function entity/beam_damage_recursion
+execute as @e[tag=E_bedr,c=1,scores={death_timer=..59}] at @s run function entity/beam_damage_recursion
